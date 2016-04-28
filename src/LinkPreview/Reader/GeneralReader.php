@@ -67,7 +67,12 @@ class GeneralReader implements ReaderInterface
         $link = $this->getLink();
 
         $client = $this->getClient();
-        $response = $client->request(
+	$client->setBaseUrl($link->getUrl());
+	$response = $client->get()->send();
+	$link->setContent($response->getBody(true))
+            ->setContentType($response->getContentType())
+            ->setRealUrl($response->getEffectiveUrl());
+/*        $response = $client->request(
             'GET',
             $link->getUrl(),
             [
@@ -86,7 +91,7 @@ class GeneralReader implements ReaderInterface
         $link->setContent((string)$response->getBody())
             ->setContentType($contentType)
             ->setRealUrl($effectiveUrl);
-
+*/
         return $link;
     }
 }
