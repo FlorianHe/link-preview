@@ -27,7 +27,7 @@ class GeneralReader implements ReaderInterface
     public function getClient()
     {
         if (!$this->client) {
-            $this->client = new Client([RequestOptions::COOKIES => true]);
+            $this->client = new Client();
         }
 
         return $this->client;
