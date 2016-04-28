@@ -2,7 +2,8 @@
 
 namespace LinkPreview\Reader;
 
-use GuzzleHttp\Client;
+use Guzzle\Http\Client;
+//use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\TransferStats;
 use LinkPreview\Model\LinkInterface;
